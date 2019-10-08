@@ -1,15 +1,14 @@
+package edu.lits;
+
 public class ATM {
 
-<<<<<<< HEAD
+
     int amountOfMoney=1300;
-=======
-    int amountOfMoney=1000;
->>>>>>> eb4b67fa214bdf5654dd235b5990d227de489ad1
 
     void showMoney () {
-        System.out.println(" The amount in ATM is next: " + amountOfMoney + " UAH");
+        System.out.println(" The amount in edu.lits.ATM is next: " + amountOfMoney + " UAH");
             }
-    void giveMoney (int money) {
+   public void giveMoney (int money) {
         System.out.println("I whant to take next amount "+money+ " UAH");
         if (amountOfMoney >= money){
         System.out.println("You CAN take " + money + " UAH");
@@ -17,6 +16,13 @@ public class ATM {
         } else {
             System.out.println(" You can't take your amount, the amount is next: " + amountOfMoney);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "ATM{" +
+                "amountOfMoney=" + amountOfMoney +
+                '}';
     }
 
     void increaseMoney (int money) {
