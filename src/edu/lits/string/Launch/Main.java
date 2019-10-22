@@ -8,6 +8,7 @@ public class Main {
         char tempChar;
         MyString str = new MyString();
 
+
         str.setStr("String with ac-ca and b char.");
 
         tempChar = str.maxCharacter();
@@ -15,6 +16,8 @@ public class Main {
 
         /* tempChar = str.maxCharacterVersionII();
         System.out.println("Max char in string is: '" + tempChar + "'");*/
+
+        System.out.println(str.maxOccurringSymbol());
 
         tempString = str.reversString();
         System.out.println(tempString);
@@ -35,5 +38,7 @@ public class Main {
 
         str.setStr("Red BLUE some string");
         str.checkRedBlue();
+
+
     }
 }
