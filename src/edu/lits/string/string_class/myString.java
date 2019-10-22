@@ -1,6 +1,6 @@
 package edu.lits.string.string_class;
 
-public class myString {
+public class MyString {
     private String str = "This is default string";
     private char[] arrOfChars;
 
@@ -12,53 +12,55 @@ public class myString {
         this.str = str;
     }
 
-    public void maxCharacter() {
+    public char maxCharacter() {
         char maxChar = str.charAt(0);
         for (int i = 0; i < str.length(); i++) {
             if (maxChar < str.charAt(i)) {
                 maxChar = str.charAt(i);
             }
         }
-        System.out.println("Max character: " + maxChar);
+        return maxChar;
     }
 
 
-    public void maxCharacterVersionII() {
+    public char maxCharacterVersionII() {
         stringToCharArray();
         char maxChar = str.charAt(0);
-        for (char tempChar:arrOfChars) {
+        for (char tempChar : arrOfChars) {
             if (maxChar < tempChar) {
                 maxChar = tempChar;
             }
         }
-        System.out.println("Max character: " + maxChar);
+        return maxChar;
     }
 
-    public void reversString() {
+    public String reversString() {
         stringToCharArray();
-        str = "";
+        String tempString = "";
         for (int i = arrOfChars.length - 1; i >= 0; i--) {
-            str = str + arrOfChars[i];
+            tempString = tempString + arrOfChars[i];
         }
 
-        System.out.println(str);
+        return tempString;
     }
 
-    public void removeCharacters(String strToRemove) {
-        str = str.replace(strToRemove, "");
+    public String removeCharacters(String strWhatRemove, String stringToEdit) {
+        String tempString = "";
+        tempString = stringToEdit.replace(strWhatRemove, "");
+        return tempString;
     }
 
 
-    public void sharpSymbol(){
+    public void sharpSymbol() {
         stringToCharArray();
-        for (int i =0; i<arrOfChars.length;i++){
-            if(arrOfChars[i]=='#'){
-                if(arrOfChars[i-1]>arrOfChars[i+1]){
-                    System.out.println(arrOfChars[i-1] + " > " + arrOfChars[i+1]);
-                }else if(arrOfChars[i+1]>arrOfChars[i-1]){
-                    System.out.println(arrOfChars[i-1] + " < " + arrOfChars[i+1]);
-                }else{
-                    System.out.println(arrOfChars[i-1] + " = " + arrOfChars[i+1]);
+        for (int i = 0; i < arrOfChars.length; i++) {
+            if (arrOfChars[i] == '#') {
+                if (arrOfChars[i - 1] > arrOfChars[i + 1]) {
+                    System.out.println(arrOfChars[i - 1] + " > " + arrOfChars[i + 1]);
+                } else if (arrOfChars[i + 1] > arrOfChars[i - 1]) {
+                    System.out.println(arrOfChars[i - 1] + " < " + arrOfChars[i + 1]);
+                } else {
+                    System.out.println(arrOfChars[i - 1] + " = " + arrOfChars[i + 1]);
                 }
 
             }
@@ -70,28 +72,29 @@ public class myString {
         int redCount = 0;
         int blueCount = 0;
         for (int i = 0; i < splited.length; i++) {
-             if (splited[i].equals("red")||splited[i].equals("Red")||splited[i].equals("RED")) {
+            if (splited[i].equals("red") || splited[i].equals("Red") || splited[i].equals("RED")) {
                 redCount++;
             } else if (splited[i].equals("blue") || splited[i].equals("Blue") || splited[i].equals("BLUE")) {
                 blueCount++;
             }
         }
-        if(redCount>blueCount){
-            System.out.println("Red in string is more then Blue by " + (redCount-blueCount));
-        }else if(redCount==blueCount){
+        if (redCount > blueCount) {
+            System.out.println("Red in string is more then Blue by " + (redCount - blueCount));
+        } else if (redCount == blueCount) {
             System.out.println("Red in string is equal Blue");
-        }else{
-            System.out.println("Blue in string is more then Red by " + (blueCount-redCount));
+        } else {
+            System.out.println("Blue in string is more then Red by " + (blueCount - redCount));
         }
     }
 
 
-    public void repeatSymbols() {
+    public String repeatSymbols() {
         stringToCharArray();
-        str = "";
+        String tempString = "";
         for (int i = 0; i < arrOfChars.length; i++) {
-            str = str + arrOfChars[i] + arrOfChars[i];
+            tempString = tempString + arrOfChars[i] + arrOfChars[i];
         }
+        return tempString;
     }
 
 
