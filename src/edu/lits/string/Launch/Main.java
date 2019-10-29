@@ -17,7 +17,7 @@ public class Main {
         /* tempChar = str.maxCharacterVersionII();
         System.out.println("Max char in string is: '" + tempChar + "'");*/
 
-        System.out.println(str.maxOccurringSymbol());
+        System.out.println("Char:  "+str.maxOccurringSymbol()+" times");
 
         tempString = str.reversString();
         System.out.println(tempString);

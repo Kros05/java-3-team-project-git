@@ -1,7 +1,7 @@
 package edu.lits.string.string_class;
 
 public class MyString {
-    private String str = "This is default strings";
+    private String str = "This is default strings  ";
     private char[] arrOfChars;
 
     public String getStr() {
@@ -22,7 +22,6 @@ public class MyString {
         return maxChar;
     }
 
-
     public char maxCharacterVersionII() {
         stringToCharArray();
         char maxChar = str.charAt(0);
@@ -36,7 +35,7 @@ public class MyString {
 
     public String maxOccurringSymbol() {
         int[] arrDuplicate = new int[str.length()];
-        String maxChar="";
+        String maxChar = "";
         for (int i = 0; i < str.length(); i++) {
             int count = 0;
             boolean status = false;
@@ -58,12 +57,12 @@ public class MyString {
                 arrDuplicate[i] = count;
             }
         }
-        int maxDuplicate=arrDuplicate[0];
+        int maxDuplicate = arrDuplicate[0];
 
         for (int i = 0; i < str.length(); i++) {
-            if(maxDuplicate<arrDuplicate[i]){
+            if (maxDuplicate < arrDuplicate[i]) {
                 maxDuplicate = arrDuplicate[i];
-                maxChar = str.charAt(i)+" ---> "+ maxDuplicate;
+                maxChar = "'" + str.charAt(i) + "'" + " ---> " + maxDuplicate;
             }
         }
         return maxChar;
