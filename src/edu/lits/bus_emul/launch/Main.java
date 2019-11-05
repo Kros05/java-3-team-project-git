@@ -5,9 +5,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner in = new Scanner(System.in);
+
         Bus bus = new Bus();
+
         int status = 0;
+
         while(status<5){
             System.out.print("chose operation:\n" +
                     "1. Sum of payment\n" +

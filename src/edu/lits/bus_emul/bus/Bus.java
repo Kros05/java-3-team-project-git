@@ -1,5 +1,7 @@
 package edu.lits.bus_emul.bus;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+
 public class Bus {
     //масив з яким працює клас
     private Payment[] paymentArray = new Payment[20];
@@ -25,7 +27,7 @@ public class Bus {
             if (i < 5) {
                 paymentArray[i].setYear(2015);
                 paymentArray[i].setMonth(1);
-                paymentArray[i].setDay(i + 1);
+                paymentArray[i].setDay(i + 2);
                 paymentArray[i].setPayment(3 * i + 1);
             } else if (i >= 5 && i < 15) {
                 paymentArray[i].setYear(2017);
@@ -38,9 +40,13 @@ public class Bus {
                 paymentArray[i].setDay(i + 1);
                 paymentArray[i].setPayment(7 * i + 1);
             }
-
         }
+        paymentArray[4].setYear(2019);
+        paymentArray[4].setMonth(12);
+        paymentArray[4].setDay(1);
+        paymentArray[4].setPayment(71);
     }
+
 
     // метод сумування всіх платежів
     public void sumOfPayment() {
@@ -175,11 +181,52 @@ public class Bus {
     //метод визначенння кількості днів між першим і крайнім днем платежів
     public void betweenFirstAndLastDay() {
         //змінна для врахування зміщення по рокам
-        int year = paymentArray[19].getYear() - paymentArray[0].getYear();
+        int year = paymentArray[lastDay()].getYear() - paymentArray[firstDay()].getYear();
         //розрахунок і виведення результату різниці між датами
-        System.out.println((paymentArray[19].dayOfYear() - paymentArray[0].dayOfYear()) + (year * 365) + " days between first and last days");
+        System.out.println("first day: " + paymentArray[firstDay()].getYear()+"/"+paymentArray[firstDay()].getMonth()+"/"+paymentArray[firstDay()].getDay());
+        System.out.println("lastDay day: " + paymentArray[lastDay()].getYear()+"/"+paymentArray[lastDay()].getMonth()+"/"+paymentArray[lastDay()].getDay());
+        System.out.println((paymentArray[lastDay()].dayOfYear() - paymentArray[firstDay()].dayOfYear()) + (year * 365) + " days between first and last days");
 
 
+    }
+    //визначення першого дня платежів
+    private int firstDay(){
+        int firstDayIndex=0;
+        for (int i =0;i<paymentArray.length;i++){
+            for(int a=i+1;a<paymentArray.length;a++){
+                if(paymentArray[firstDayIndex].getYear()>paymentArray[a].getYear()){
+                    firstDayIndex = a;
+                }else if(paymentArray[firstDayIndex].getYear()==paymentArray[a].getYear()){
+                    if(paymentArray[firstDayIndex].getMonth()>paymentArray[a].getMonth()){
+                        firstDayIndex = a;
+                    }else if(paymentArray[firstDayIndex].getMonth()==paymentArray[a].getMonth()){
+                        if(paymentArray[firstDayIndex].getDay()>paymentArray[a].getDay())
+                        firstDayIndex=a;
+                    }
+                }
+            }
+        }
+        return firstDayIndex;
+    }
+    //визначення останнього дня платежів
+    private int lastDay(){
+        int lastDayIndex=0;
+        for (int i =0;i<paymentArray.length;i++){
+            for(int a=i+1;a<paymentArray.length;a++){
+                if(paymentArray[lastDayIndex].getYear()<paymentArray[a].getYear()){
+                    lastDayIndex = a;
+                }else if(paymentArray[lastDayIndex].getYear()==paymentArray[a].getYear()){
+                    if(paymentArray[lastDayIndex].getMonth()<paymentArray[a].getMonth()){
+                        lastDayIndex = a;
+                    }else if(paymentArray[lastDayIndex].getMonth()==paymentArray[a].getMonth()){
+                        if(paymentArray[lastDayIndex].getDay()<paymentArray[a].getDay()) {
+                            lastDayIndex = a;
+                        }
+                    }
+                }
+            }
+        }
+        return lastDayIndex;
     }
 
 }
